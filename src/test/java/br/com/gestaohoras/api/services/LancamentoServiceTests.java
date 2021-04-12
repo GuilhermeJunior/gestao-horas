@@ -3,11 +3,13 @@ package br.com.gestaohoras.api.services;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -55,11 +57,10 @@ public class LancamentoServiceTests {
 		//Given
 		Mockito.when(repository.save(ArgumentMatchers.any(Lancamento.class)))
 		.thenReturn(LancamentoServiceMocks.test_salvarLancamento());
-		
 		//When
 		Optional<LancamentoResponseDTO> actual = Optional.of(service.adicionaLancamento(LancamentoServiceMocks.test_adicionarLancamento()));
 		//Then
-		assertFalse(actual.isEmpty());
+		assertTrue(actual.isPresent());
 		
 	}
 	
@@ -72,11 +73,9 @@ public class LancamentoServiceTests {
 		//And
 		Mockito.when(repository.findByFuncionario(ArgumentMatchers.any()))
 		.thenReturn(LancamentoServiceMocks.test_findAll());
-		
 		//And
 		Funcionario funcionario = new Funcionario();
 		funcionario.setId(1L);
-		
 		//When
 		List<LancamentoResponseDTO> actual = service.findAll(funcionario.getId());
 		//Then
@@ -116,7 +115,7 @@ public class LancamentoServiceTests {
 		//When
 	    Optional<LancamentoResponseDTO> actual = Optional.of(service.atualizaLancamento(LancamentoServiceMocks.lancamentoPutDTOMock(), funcionario.getId()));
 	    //Then
-	    assertFalse(actual.isEmpty());
+	    assertTrue(actual.isPresent());
 	}
 	
 	@Test
