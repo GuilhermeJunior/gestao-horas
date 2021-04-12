@@ -44,3 +44,7 @@ Segue um json para testar o endpoint Post
 ```
 
 
+## Observação
+-Durantes testes no eclipse IDE não houve problemas ao gerar as implentações do mapstruct, porém quando utilizado a opção através do comando "mvn clean install" não está gerando
+corretamente. Assim que resolver essa situação, subirei um release com o ajuste.
+
