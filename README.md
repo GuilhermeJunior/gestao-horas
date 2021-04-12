@@ -28,3 +28,19 @@ mvn spring-boot:run
 Acesse os endpoints através da url http://localhost:8080
 ```
 
+## Testes
+- Sugiro a utilização do Postman Para testar os endpoints
+Segue um json para testar o endpoint Post
+```json
+{
+  "data": "10-04-2021",
+  "periodo": "MANHA",
+  "tipoLancamento": "ENTRADA",
+  "horario": "08:00",
+  "funcionario": {
+    "id": 1
+  }
+}
+```
+
+
