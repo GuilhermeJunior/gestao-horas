@@ -23,7 +23,7 @@
 
 ```sh
 git clone https://github.com/GuilhermeJunior/gestao-horas.git
-cd gestao-horas.git
+cd gestao-horas
 mvn spring-boot:run
 Acesse os endpoints através da url http://localhost:8080
 ```
