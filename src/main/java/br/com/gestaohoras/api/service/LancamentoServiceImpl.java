@@ -32,9 +32,6 @@ public class LancamentoServiceImpl implements LancamentoService{
 	public LancamentoResponseDTO adicionaLancamento(LancamentoPostDTO lancamento) {
 		
 		Lancamento novoLancamento = mapper.postDtoTomodel(lancamento);
-		
-		//validarLancamento(novoLancamento);
-
 		novoLancamento.setDataRegistro(Instant.now());
 		repository.save(novoLancamento);
 		
@@ -60,7 +57,7 @@ public class LancamentoServiceImpl implements LancamentoService{
 	@Override
 	public List<LancamentoResponseDTO> findAll(Long idFuncionario) {
 		
-		Optional<Funcionario> funcionario =   funcionarioRepository.findById(idFuncionario);
+		Optional<Funcionario> funcionario = funcionarioRepository.findById(idFuncionario);
 		if(!funcionario.isPresent()) {
 			throw new FuncionarioNotFound("Funcionáro com o id " + idFuncionario + " não encontrado");
 		}

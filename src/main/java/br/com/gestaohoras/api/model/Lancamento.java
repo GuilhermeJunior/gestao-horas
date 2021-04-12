@@ -13,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 import br.com.gestaohoras.api.enums.PeriodoEnum;
 import br.com.gestaohoras.api.enums.TipoEnum;
@@ -23,8 +22,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Table(name = "TLANCAMENTOS", 
-       uniqueConstraints = @UniqueConstraint(columnNames = {"dt_lancamento", "ie_periodo", "ie_lancamento", "cd_funcionario" }))
+@Table(name = "TLANCAMENTOS")
 @Data
 @NoArgsConstructor
 @ToString
